@@ -1,20 +1,31 @@
+\setlength{\parskip}{1em} % Adds vertical space between paragraphs
+\setlength{\parindent}{0pt} % Removes the indent at the start of each paragraph
+
 \section{Introduction}
 \label{sec:introduction}
 
-Approximately 1 page on:
+\subsection{Development of the Feedback App}
+In this project we have developed a feedback app for voting on polls. We have implemented register and login functionality. A user can create polls that are either private or public, and both users and voters can vote on polls. 
+Only logged in users can vote on polls. We have also created a pollinfo display where users can look at results of their own polls. On this pollinfo page, you can also find an shareable link so that people that dont have user accounts can vote on public polls. 
+Users can also manage their polls by ending them, starting them again, and deleting them. 
 
-\begin{itemize}
+\subsection{Technology stack}
+The technology stack chosen for this project is both robust and dynamic, encompassing a spectrum of modern development tools and frameworks. 
+We have employed React for our front-end development, capitalizing on its component-based architecture for a responsive and interactive user interface. 
+The back-end is powered by Spring Boot, providing a strong and scalable foundation for our application services. For message handling and asynchronous operations, RabbitMQ has been integrated, ensuring efficient communication and process management.
 
-\item A brief introduction to the prototype implementation and topic of the project.
+Further enhancing our application's capabilities, we have incorporated Tailwind CSS for streamlined styling, JPA (Java Persistence API) for efficient data handling, and Hibernate for object-relational mapping, ensuring a seamless data management experience. 
+Firebase is used for our authentication solutions, fortifying the app's security. 
+Additionally, Dweet.io has been utilized for its simplicity in real-time messaging, and an H2 database for its lightweight and easy-to-use nature.
 
-\item Discuss (briefly) the technology stack that has been selected, mention related technologies (if relevant), primary arguments for choice of technology stack.
-
-\item A brief account of the results that have been obtained in the project.
-
-\item A one paragraph overview at the end, explaining how the rest of the report is / has been organised.
-
-\end{itemize}
-
-\noindent
+\subsection{Results}
+During this project, we have gained a better insight into different software technologies, frameworks and tools. 
+We now have a working prototype of a voting app which can easily be extendable to include more features in the future. 
+\subsection{Overview}
 This rest of this report is organised as follows:
-Section~\ref{sec:technology} gives an ....
+Section~\ref{sec:technology} gives an overview of the software technology stack used. 
+Section~\ref{sec:design} describes the design of the prototype. 
+Section~\ref{sec:implementation} details how the prototype has been implemented. 
+Section~\ref{sec:evaluation} explains how the prototype has been tested and what experiments have been done.  
+In Section~\ref{sec:conclusion} we provide conclusions regarding different aspects of the project.
+

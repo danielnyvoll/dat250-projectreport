@@ -1,5 +1,55 @@
-\section{Demonstrator Prototype}
+\section{Design}
 \label{sec:design}
+
+The architecture of our voting application is built upon a microservice framework, utilizing Spring Boot for the backend services and React for the frontend user interface. This section outlines the high-level architecture and implementation details of the application.
+
+\subsection{Client-Side (Frontend)}
+The frontend is implemented using React, which provides:
+\begin{itemize}
+  \item A dynamic and responsive user interface for end-users.
+  \item Modular components that communicate with the backend via RESTful APIs.
+\end{itemize}
+
+\subsection{Server-Side (Backend)}
+Powered by Spring Boot, the backend is composed of:
+\begin{itemize}
+  \item Microservices that handle specific business capabilities, running independently and communicating through RabbitMQ for messaging.
+  \item A layered architecture comprising Controllers, Services, Repositories, and Models.
+\end{itemize}
+
+\subsubsection{Application Layers}
+The backend is divided into several layers, each responsible for distinct roles within the application:
+\begin{itemize}
+  \item \textbf{Controller Layer}: Manages HTTP requests and responses.
+  \item \textbf{Service Layer}: Orchestrates business logic and data flow.
+  \item \textbf{Repository Layer}: Provides data access to the database.
+  \item \textbf{Model Layer}: Represents the application's domain model.
+\end{itemize}
+
+\subsubsection{Data Management and Storage}
+Data persistence is achieved through:
+\begin{itemize}
+  \item JPA with Hibernate for object-relational mapping and database interactions.
+  \item An H2 in-memory database for development, ensuring speed and ease of configuration.
+\end{itemize}
+
+\subsubsection{Security and Authentication}
+Firebase Authentication is integrated to provide:
+\begin{itemize}
+  \item Secure authentication mechanisms including social logins and OAuth2 flows.
+  \item An abstraction layer for security concerns, allowing focus on core functionalities.
+\end{itemize}
+
+\subsubsection{Real-Time Messaging and Updates}
+The integration of Dweet.io facilitates:
+\begin{itemize}
+  \item Real-time messaging capabilities, particularly beneficial for IoT scenarios.
+  \item Immediate data update dissemination to clients.
+\end{itemize}
+
+\subsection{Conclusion}
+The application leverages the strengths of its chosen technologies to provide a robust, scalable, and performant system. The architecture ensures a clean separation of concerns, promoting maintainability and flexibility to cater to the evolving requirements of the application.
+
 
 About 4 pages on:
 
