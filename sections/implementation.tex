@@ -1,4 +1,25 @@
 \section{Prototype Implementation}
 \label{sec:implementation}
 
-This section should provide details of how the prototype has been implemented which may involve presentation of suitable code snippets.
+\subsection{Repository Pattern}
+
+We have implemented the Repository pattern to abstract the data layer, making it easy to access and manipulate the domain entities. Below is an example of a repository interface for the Poll entity:
+\lstinputlisting[language=java]{code/UserRepository.java}
+
+\subsection{Controller Implementation}
+Controllers manage HTTP requests. The following is the poll controller operations for creating a poll and getting a poll:
+
+\lstinputlisting[language=java]{code/PollController.java}
+
+\subsection{Frontend Implementation}
+
+The frontend of our application is implemented using React, a declarative, efficient, and flexible JavaScript library for building user interfaces. Here is how we have structured the frontend to interact with our backend services and third-party integrations:
+
+\subsubsection*{React and Tailwind CSS}
+React’s component-based architecture allows us to build encapsulated components that manage their own state and compose them to make complex UIs. Tailwind CSS is used alongside React to style our components with utility classes, ensuring a responsive and modern user interface.
+
+\lstinputlisting[language=Java]{code/App.js}
+
+Login component, as shown below, is a functional component in React used for user authentication. It employs React's \texttt{useState} hook to manage the states for user email and password, and \texttt{useNavigate} for navigation post-login. This component integrates with Firebase to authenticate users. The `handleLogin` function manages the login process, handling both successful and failed login attempts. The UI is crafted using a combination of React and Tailwind CSS, which aids in creating a responsive design. Key elements include input fields for email and password, and a custom \texttt{Button} component for submitting the form. Additionally, a \texttt{BackButton} is included to enhance navigation.
+
+\lstinputlisting[language=Java]{code/Login.js}

@@ -1,24 +1,154 @@
 \section{Design}
 \label{sec:design}
 
-\includegraphics[scale=0.4]{figs/ApplicationFlowDiagram.png}
+The application is designed using modern scalable technologies with clear separation of concerns across its various layers. 
+The system is built upon a microservices architecture pattern, enabling independent scaling and flexibility in deployment
 
 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figs/ApplicationFlowDiagram.png}
+\caption{Application flow diagram}
+\label{fig:appflow}
+\end{figure}
 
-About 4 pages on:
+The application flow diagram, as seen in Figure~\ref{fig:appflow}, provides a high-level overview of the users journey through the application. It begins with the Login screen, where users can either log in or register. In case of registration, the user is prompted to add a username and password before being redirected to the main screen upon successful account creation. The main screen serves as a navigation hub, allowing users to view polls, create new polls, or log out.
 
-\begin{enumerate}
+Upon selecting a poll, the user is taken to the Poll Voting screen, where they can cast their vote. Both successful and unsuccessful actions within the application are accounted for, with clear pathways leading the user to appropriate screens or error messages, ensuring a robust user experience. The diagram distinctly marks the paths taken during normal operation (success) and exceptions (failure), reflecting the applications error-handling capabilities.
 
-\item An architectural overview of the application that has been implemented
-\item High-level design, domain model, … (App assignment A)
-\item May involve selected models from Chaps. 5 of the IoT and cloud books
+The flow for creating a poll is similarly user-friendly, with the Create Poll screen allowing users to add or remove questions before saving. The user is provided with immediate feedback on the success or failure of their actions, with the system guiding them accordingly.
+
+In addition to the primary user flows, the diagram also highlights potential failure states, such as login failures or issues entering private polls, indicating comprehensive error handling throughout the application.
+    
 
 
-\end{enumerate}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{figs/UserDiagram.png}
+\caption{Website use case diagram}
+\label{fig:userdiagram}
+\end{figure}
 
-The example below shows how you may include code. There are similar
-styles for many other langages - in case you do not use Java in your
-project. You can wrap the listing into a figure in case you need to
-refer to it. How to create a figure was shown in Section~\ref{sec:technology}.
+Figure~\ref{fig:userdiagram} delineates the use case diagram for the website, detailing the interactions that both 'User' and 'Voter' actors have with the system. The 'User' actor, representing registered individuals, has the capabilities to register, vote, see poll results, create, delete, and update polls. The distinction between a general 'User' and a 'Voter' highlights the specialized role that a 'Voter' plays in the context of the application, primarily focused on the voting functionality. The use case diagram clearly identifies the system's boundary and the primary functions available to the users, providing a straightforward visualization of the different ways the users can interact with the system. It serves as a guide for understanding the user requirements and the scope of the system from an end-user perspective
 
-\lstinputlisting[language=java]{code/BoksVolum.java}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.4\linewidth]{figs/DomainModel.png}
+\caption{Domain model}
+\label{fig:domainmodel}
+\end{figure}
+
+Figure~\ref{fig:domainmodel} presents the domain model of the application, illustrating the primary entities and their relationships. The model defines a User entity with attributes for username, password, a unique Firebase user ID, administrative rights, and an identifier. This entity is central to the model and is associated with Voter, Vote, and IoT-Device entities.
+
+The Voter is a specialized type of User, indicated by a shared id attribute, encapsulating only the necessary attributes for voting purposes, such as username and voter identifier. The Vote entity represents an individual vote, with a boolean answer attribute and a unique identifier, which is associated with a Question. Each Question contains attributes for the total number of votes, counts of yes and no votes, the text of the question, and an identifier.
+
+The model also includes a Poll entity, which aggregates Questions. It has attributes for the poll name, access mode, an active status indicator, and an identifier. The IoT-Device entity represents devices that may interact with the system, characterized by an identifier, a name, another unique identifier, and a status boolean, which could be used for integrating IoT capabilities within the application.
+
+This domain model serves as a blueprint for the systems structure, outlining the key data elements and their interconnections, which are crucial for understanding the relationships and data flow within the application.
+
+\subsection{Design Patterns}
+
+\subsubsection{Model-View-Controller (MVC)}
+
+Our application employs the \textbf{Model-View-Controller (MVC)} design pattern, a paradigm for creating software with separated concerns, enhancing code reusability, and facilitating parallel development. The implementation of MVC within our voting application is outlined as follows:
+
+\begin{description}
+  \item[Model:] The model layer manages data and business logic. It encompasses domain entities corresponding to database tables, abstracting database access through Spring Data JPA with Hibernate. The models, defined as POJOs, encapsulate the application's data structures and business rules.
+  
+  \item[View:] Implemented using React.js, the View is a dynamic user interface for client-side interactions. Tailwind CSS is integrated for responsive and aesthetic styling. The frontend operates independently, interfacing with the server through API calls.
+  
+  \item[Controller:] Controllers in the `controller` package mediate between Model and View, handling HTTP requests with `@RestController` annotations. They direct user inputs to model operations and return appropriate responses, whether as rendered views or data payloads.
+\end{description}
+
+\paragraph{Advantages of MVC in Our Application:}
+\begin{itemize}
+  \item \textbf{Separation of Concerns:} MVC facilitates maintenance and scalability with its independent component operation.
+  \item \textbf{Parallel Development:} Developers can work on the Model, View, and Controller concurrently, expediting development cycles.
+  \item \textbf{Testability:} The separation allows for precise automated testing of business logic and user interfaces.
+  \item \textbf{Adaptability:} Business logic or UI changes incur minimal impact on the overall architecture.
+\end{itemize}
+
+The MVC design pattern is integral to our application's design, ensuring a clean separation between user interface, business processing, and data management components, making the system robust, maintainable, and adaptable.
+
+
+\subsection{Architectural Layers}
+\subsubsection{Layer (Frontend)}
+
+\begin{itemize}
+
+\item React.js: The user interface layer where components are created to display the applications UI. This layer interacts with the user, presenting data and capturing user inputs.
+\item Tailwind CSS: Used within the presentation layer for styling the React components with CSS classes, enhancing the user experience with a custom look and feel.
+
+\end{itemize}
+
+\subsubsection{Application Layer}
+
+\begin{itemize}
+
+\item Controllers: These classes serve as part of the application layer in the Spring Boot backend, handling HTTP request mappings, processing incoming data, invoking business logic, and returning responses to the frontend.
+
+\end{itemize}
+
+\subsubsection{Business Logic Layer (Service Layer)}
+
+\begin{itemize}
+
+\item Services: This layer contains the business logic or service classes that handle the applications operations, business rules, and computations. It acts as a bridge between the presentation layer and the data access layer.
+
+\end{itemize}
+
+\subsubsection{Data Access Layer (Persistence Layer)}
+
+\begin{itemize}
+
+\item Repositories: These are the JPA repositories that abstract the data layer, providing simple ways to perform database operations on the entities.
+
+\item Models: JPA entities in the model package represent the applications business data and are mapped to the database tables.
+
+\item Hibernate: As the JPA implementation, Hibernate handles object-relational mapping (ORM), allowing for the translation between the object model representation and the relational database representation of the data.
+
+\end{itemize}
+
+\subsubsection{Configuration Layer}
+
+\begin{itemize}
+
+\item Config Package: Includes Spring configuration classes that define beans, database configurations, and security configurations. 
+
+\end{itemize}
+
+\subsubsection{Database Layer}
+
+\begin{itemize}
+
+\item H2 Database: An in-memory database used for persisting the application data, which would be interacted with through the JPA repositories.
+
+\end{itemize}
+
+\subsubsection{Authentication Layer}
+
+\begin{itemize}
+    
+\item Firebase Authentication: Provides services for user authentication and is likely integrated into the application layer to secure endpoints and manage user sessions.
+
+\end{itemize}
+
+\subsubsection{Testing Layer}
+
+\begin{itemize}
+
+\item Test Package: Contains the unit and integration tests that ensure individual parts of the application work as intended and together as a whole.    
+
+\end{itemize}
+
+\subsubsection{Build and Deployment Infrastructure}
+
+\begin{itemize}
+
+\item \textbf{Gradle:} Manages dependencies, compiles the application, and packages it for deployment.
+\item \textbf{Docker:} For creating a containerized environment of the application, ensuring consistency across different development, testing, and production environments.    
+\end{itemize}
+
+Each of these layers is modular and, in principle, could be modified or replaced independently of the others. This structure supports maintainability, scalability, and the continuous development and deployment practices commonly associated with agile and DevOps practices.
+
