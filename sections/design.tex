@@ -12,7 +12,7 @@ The system is built upon a microservices architecture pattern, enabling independ
 \label{fig:appflow}
 \end{figure}
 
-The application flow diagram, as seen in Figure~\ref{fig:appflow}, provides a high-level overview of the users journey through the application. It begins with the Login screen, where users can either log in or register. In case of registration, the user is prompted to add a username and password before being redirected to the main screen upon successful account creation. The main screen serves as a navigation hub, allowing users to view polls, create new polls, or log out.
+The application flow diagram, as seen in Figure~\ref{fig:appflow}, provides a high-level overview of the user's journey through the application. According to Lucidchart, process flow diagrams help to "show unnecessary steps, bottlenecks, and other inefficiencies" \cite{lucidchart2023}. It begins with the Login screen, where users can either log in or register. In case of registration, the user is prompted to add a username and password before being redirected to the main screen upon successful account creation. The main screen serves as a navigation hub, allowing users to view polls, create new polls, or log out.
 
 Upon selecting a poll, the user is taken to the Poll Voting screen, where they can cast their vote. Both successful and unsuccessful actions within the application are accounted for, with clear pathways leading the user to appropriate screens or error messages, ensuring a robust user experience. The diagram distinctly marks the paths taken during normal operation (success) and exceptions (failure), reflecting the applications error-handling capabilities.
 
@@ -29,7 +29,7 @@ In addition to the primary user flows, the diagram also highlights potential fai
 \label{fig:userdiagram}
 \end{figure}
 
-Figure~\ref{fig:userdiagram} delineates the use case diagram for the website, detailing the interactions that both 'User' and 'Voter' actors have with the system. The 'User' actor, representing registered individuals, has the capabilities to register, vote, see poll results, create, delete, and update polls. The distinction between a general 'User' and a 'Voter' highlights the specialized role that a 'Voter' plays in the context of the application, primarily focused on the voting functionality. The use case diagram clearly identifies the system's boundary and the primary functions available to the users, providing a straightforward visualization of the different ways the users can interact with the system. It serves as a guide for understanding the user requirements and the scope of the system from an end-user perspective
+Figure~\ref{fig:userdiagram} delineates the use case diagram for the website, detailing the interactions that both 'User' and 'Voter' actors have with the system. The 'User' actor, representing registered individuals, has the capabilities to register, vote, see poll results, create, delete, and update polls. The distinction between a general 'User' and a 'Voter' highlights the specialized role that a 'Voter' plays in the context of the application, primarily focused on the voting functionality. The use case diagram clearly identifies the system's boundary and the primary functions available to the users, providing a straightforward visualization of the different ways the users can interact with the system. "A key concept of use case modeling is that it helps us design a system from the end user's perspective" \cite{visualparadigm2023}.
 
 
 \begin{figure}[!htbp]
@@ -39,7 +39,7 @@ Figure~\ref{fig:userdiagram} delineates the use case diagram for the website, de
 \label{fig:domainmodel}
 \end{figure}
 
-Figure~\ref{fig:domainmodel} presents the domain model of the application, illustrating the primary entities and their relationships. The model defines a User entity with attributes for username, password, a unique Firebase user ID, administrative rights, and an identifier. This entity is central to the model and is associated with Voter, Vote, and IoT-Device entities.
+Figure~\ref{fig:domainmodel} presents the domain model of the application, illustrating the primary entities and their relationships. "A domain model is a visual representation of real situation objects in a domain. A domain is an area of concern. It's used to refer to the area you are dealing with" \cite{stack2018domain}. The model defines a User entity with attributes for username, password, a unique Firebase user ID, administrative rights, and an identifier. This entity is central to the model and is associated with Voter, Vote, and IoT-Device entities.
 
 The Voter is a specialized type of User, indicated by a shared id attribute, encapsulating only the necessary attributes for voting purposes, such as username and voter identifier. The Vote entity represents an individual vote, with a boolean answer attribute and a unique identifier, which is associated with a Question. Each Question contains attributes for the total number of votes, counts of yes and no votes, the text of the question, and an identifier.
 
@@ -60,6 +60,7 @@ Our application employs the \textbf{Model-View-Controller (MVC)} design pattern,
   
   \item[Controller:] Controllers in the `controller` package mediate between Model and View, handling HTTP requests with `@RestController` annotations. They direct user inputs to model operations and return appropriate responses, whether as rendered views or data payloads.
 \end{description}
+\cite{sandeshMVC2018}
 
 \paragraph{Advantages of MVC in Our Application:}
 \begin{itemize}
@@ -86,7 +87,7 @@ The MVC design pattern is integral to our application's design, ensuring a clean
 
 \begin{itemize}
 
-\item Controllers: These classes serve as part of the application layer in the Spring Boot backend, handling HTTP request mappings, processing incoming data, invoking business logic, and returning responses to the frontend.
+\item Controllers: These classes serve as part of the application layer in the Spring Boot backend, handling HTTP request mappings, processing incoming data, invoking business logic, and returning responses to the frontend. \cite{harvardEA2023}
 
 \end{itemize}
 
@@ -106,7 +107,7 @@ The MVC design pattern is integral to our application's design, ensuring a clean
 
 \item Models: JPA entities in the model package represent the applications business data and are mapped to the database tables.
 
-\item Hibernate: As the JPA implementation, Hibernate handles object-relational mapping (ORM), allowing for the translation between the object model representation and the relational database representation of the data.
+\item Hibernate: As the JPA implementation, Hibernate handles object-relational mapping (ORM), allowing for the translation between the object model representation and the relational database representation of the data. \cite{harvardEA2023}
 
 \end{itemize}
 
