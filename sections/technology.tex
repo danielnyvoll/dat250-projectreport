@@ -1,35 +1,15 @@
 \section{Software Technology Stack}
 \label{sec:technology}
 
-\subsection{React and Tailwind: Frontend Infrastructure}
-For our frontend, we chose to use React and Tailwind. As noted by Goadrich and Rogers, ``However, conclusions show that React Native exhibits the best outcomes when taking into consideration the operating systems'' \cite[p.~611]{goadrich2011smart}. It allows us to create large web applications that can change data, without reloading the page.
-Tailwind CSS is a utility-first CSS framework that has been gaining popularity for its unique approach to styling web applications. 
-Here's a detailed explanation of why React and Tailwind CSS is an excellent choice for the front-end development of our web application:
+\subsection{React and Tailwind: Efficient Frontend Development}
 
-React's core strength lies in its component-based architecture. This approach enables developers to build encapsulated components that manage their own state, and then compose them to make complex user interfaces. 
-By breaking down the UI into individual components, React promotes reusability, which can significantly speed up development time and reduce code redundancy.
+We have chosen React and Tailwind for our web application's frontend, aligning with Goadrich and Rogers' findings that React Native excels across different operating systems \cite[p.~611]{goadrich2011smart}. React enables us to build dynamic web applications where data changes without page reloads. Tailwind CSS, a utility-first framework, has been rising in popularity for its streamlined approach to styling.
 
-Each component has a well-defined lifecycle, and React provides hooks into these lifecycle events. 
-For instance, developers can execute code at the moment a component mounts, updates, or unmounts, giving fine-grained control over its behavior.
+React stands out for its component-based architecture, allowing developers to create self-contained components managing their own state, leading to reusable, complex UIs. It simplifies development and reduces redundancy. React's lifecycle management offers fine control over component behavior, and its declarative nature means developers describe the UI while React handles DOM updates efficiently. This is especially beneficial for large application maintainability.
 
-React is declarative, meaning that developers write code that describes the UI, and React takes care of updating the Document Object Model (DOM) to match that description. 
-When the state of a component changes, React updates only the parts of the DOM that have changed. 
-This declarative update process simplifies the code and makes it more predictable, which is crucial for the maintainability of large applications.
+The React community is vast, offering numerous libraries and tools like Redux, MobX, and React Router. Developer tools like React Developer Tools enhance the debugging experience, and React's helpful error messages aid in swift issue resolution.
 
-React has a large and active community, which translates into a wealth of third-party components, libraries, and tools that extend its capabilities. 
-The ecosystem around React includes state management libraries like Redux and MobX, routing solutions like React Router, and numerous other utilities that complement React's feature set.
-
-Developer experience is another strong suit for React. It offers a robust set of developer tools, including React Developer Tools, which is a browser extension for debugging component trees. 
-It also provides meaningful warnings and error messages that help developers quickly identify and resolve issues.
-
-Tailwind CSS enhances developer experience by allowing them to stay in the HTML for the majority of the styling work, which reduces context switching between HTML and CSS files. 
-This can lead to faster development cycles and increased productivity. The utility classes are also self-explanatory, which makes the code easier to read and understand at a glance.
-
-Tailwind CSS employs a utility-first approach to styling, which is a significant shift from traditional CSS frameworks that provide UI kits with predefined component styles. 
-Instead of using semantic class names tied to specific components, Tailwind provides low-level utility classes that can be composed to build any design, directly in the markup. This approach makes it incredibly flexible and reduces the need to write custom CSS to an absolute minimum.
-
-Because Tailwind encourages the use of utility classes, the size of CSS files tends to be smaller, which can lead to performance gains. 
-When combined with its JIT compiler, Tailwind generates the minimal amount of CSS needed for a project, leading to faster load times and improved overall performance of the web application.
+Tailwind CSS complements this by enabling in-HTML styling, reducing the need to switch between HTML and CSS files. Its utility-first approach and self-explanatory classes enhance readability and speed up development. Tailwind's focus on utility classes often results in smaller CSS files, boosting performance. Its JIT compiler ensures minimal CSS generation, enhancing load times and overall web application performance.
 
 \subsection{Spring Boot: Back-End Infrastructure}
 Spring Boot is an extension of the Spring framework that simplifies the initial setup and development of new Spring applications.\cite{springboot2023} 

@@ -73,83 +73,26 @@ Our application employs the \textbf{Model-View-Controller (MVC)} design pattern,
 The MVC design pattern is integral to our application's design, ensuring a clean separation between user interface, business processing, and data management components, making the system robust, maintainable, and adaptable.
 
 
-\subsection{Architectural Layers}
-\subsubsection{Layer (Frontend)}
+\subsection{Architectural Layers Overview}
 
-\begin{itemize}
+Our web application's architecture is thoughtfully organized into distinct layers, each serving a specific function, yet collectively contributing to a cohesive and efficient system.
 
-\item React.js: The user interface layer where components are created to display the applications UI. This layer interacts with the user, presenting data and capturing user inputs.
-\item Tailwind CSS: Used within the presentation layer for styling the React components with CSS classes, enhancing the user experience with a custom look and feel.
+The \textbf{Frontend Layer} features React.js for crafting the user interface, where components are meticulously designed to present the application's UI, facilitating data presentation and user interaction. Tailwind CSS is intricately used within this layer to style the React components, offering an enhanced user experience through a customized look and feel.
 
-\end{itemize}
+In the \textbf{Application Layer}, controllers, integral to our Spring Boot backend, manage HTTP requests. They process incoming data, trigger business logic, and return responses to the frontend, functioning as a pivotal connection point in the application flow.
 
-\subsubsection{Application Layer}
+The \textbf{Business Logic (Service) Layer} houses the core of our application's operations. It contains service classes that encapsulate the business rules and computations, bridging the gap between the presentation layer and the data access layer.
 
-\begin{itemize}
+The \textbf{Data Access (Persistence) Layer} is key in managing data interactions. It comprises JPA repositories that abstract data layer operations and models that represent the application's business data, mapped to database tables. Hibernate, as our chosen JPA implementation, seamlessly handles the object-relational mapping, translating between the object model and the relational database representation.
 
-\item Controllers: These classes serve as part of the application layer in the Spring Boot backend, handling HTTP request mappings, processing incoming data, invoking business logic, and returning responses to the frontend. \cite{harvardEA2023}
+Our \textbf{Configuration Layer} encompasses Spring configuration classes, which define beans and configure database and security settings, ensuring a robust and secure application infrastructure.
 
-\end{itemize}
+The \textbf{Database Layer} utilizes the H2 Database, an in-memory database ideal for persisting application data, accessed via the JPA repositories.
 
-\subsubsection{Business Logic Layer (Service Layer)}
+The \textbf{Authentication Layer} features Firebase Authentication services, crucial for user authentication. It is integrated into the application layer to secure endpoints and manage user sessions effectively.
 
-\begin{itemize}
+The \textbf{Testing Layer} contains comprehensive unit and integration tests, ensuring each application component functions correctly both independently and collectively.
 
-\item Services: This layer contains the business logic or service classes that handle the applications operations, business rules, and computations. It acts as a bridge between the presentation layer and the data access layer.
+Finally, the \textbf{Build and Deployment Infrastructure} employs Gradle for dependency management, compilation, and packaging, while Docker is used to create a containerized application environment, promoting consistency across various development and production settings.
 
-\end{itemize}
-
-\subsubsection{Data Access Layer (Persistence Layer)}
-
-\begin{itemize}
-
-\item Repositories: These are the JPA repositories that abstract the data layer, providing simple ways to perform database operations on the entities.
-
-\item Models: JPA entities in the model package represent the applications business data and are mapped to the database tables.
-
-\item Hibernate: As the JPA implementation, Hibernate handles object-relational mapping (ORM), allowing for the translation between the object model representation and the relational database representation of the data. \cite{harvardEA2023}
-
-\end{itemize}
-
-\subsubsection{Configuration Layer}
-
-\begin{itemize}
-
-\item Config Package: Includes Spring configuration classes that define beans, database configurations, and security configurations. 
-
-\end{itemize}
-
-\subsubsection{Database Layer}
-
-\begin{itemize}
-
-\item H2 Database: An in-memory database used for persisting the application data, which would be interacted with through the JPA repositories.
-
-\end{itemize}
-
-\subsubsection{Authentication Layer}
-
-\begin{itemize}
-    
-\item Firebase Authentication: Provides services for user authentication and is likely integrated into the application layer to secure endpoints and manage user sessions.
-
-\end{itemize}
-
-\subsubsection{Testing Layer}
-
-\begin{itemize}
-
-\item Test Package: Contains the unit and integration tests that ensure individual parts of the application work as intended and together as a whole.    
-
-\end{itemize}
-
-\subsubsection{Build and Deployment Infrastructure}
-
-\begin{itemize}
-
-\item \textbf{Gradle:} Manages dependencies, compiles the application, and packages it for deployment.
-\item \textbf{Docker:} For creating a containerized environment of the application, ensuring consistency across different development, testing, and production environments.    
-\end{itemize}
-
-Each of these layers is modular and, in principle, could be modified or replaced independently of the others. This structure supports maintainability, scalability, and the continuous development and deployment practices commonly associated with agile and DevOps practices.
-
+This modular layering not only enhances the maintainability and scalability of the application but also aligns perfectly with agile and DevOps practices, supporting continuous development and deployment.
