@@ -2,14 +2,14 @@
 \label{sec:implementation}
 
 \subsection{JPA Repositories}
-A key component of our application's persistence layer is the use of the Java Persistence API (JPA), which provides a specification for managing relational data in Java applications. We leverage JPA in our project to streamline database operations and facilitate object-relational mapping. As part of our implementation, we utilize Spring Data JPA, which extends the standard JPA repository interfaces with powerful data access methods, reducing the need for boilerplate code.
+A key component of our application's persistence layer is the use of the Java Persistence API (JPA)\cite{JavaEETutorial2014}, which provides a specification for managing relational data in Java applications. We leverage JPA in our project to streamline database operations and facilitate object-relational mapping. As part of our implementation, we utilize Spring Data JPA, which extends the standard JPA repository interfaces with powerful data access methods, reducing the need for boilerplate code.
 The UserRepository is a prime example of this implementation. It is annotated with @Repository, indicating that it is a JPA repository and making it a candidate for Spring's component scanning to detect it as a Spring Bean.
 We extend the 'JpaRepository' interface, providing CRUD operations for User. This extension allows us to utilize pre-built methods such as save, findById, and delete without explicitly defining them.
 The method declerations is custom query methods that Spring Data JPA will automatically implement.
 \lstinputlisting[language=java]{code/UserRepository.java}
 
 \subsection{Controller Implementation}
-In the heart of our backend's HTTP request handling is the PollController, a class dedicated to managing poll-related operations. The controller is annotated with @RestController, indicating that it's ready to handle web requests. We've implemented two main request mappings in this controller.
+In the heart of our backend's HTTP request handling is the PollController, a class dedicated to managing poll-related operations. The controller is annotated with @RestController, indicating that it's ready to handle web requests. REST stands for REpresentational State Transfer \cite{Fielding2002}. We've implemented two main request mappings in this controller.
 
 The first mapping, @GetMapping("/{id}"), is designed to retrieve a poll by its unique identifier. When a GET request is made to this endpoint with a poll's ID, the pollService.findById(id) method is called. This service method returns an Optional<Poll>, which is a container that may or may not contain a non-null value, depending on if a poll with the given ID exists. If the poll is found, it is returned with an HTTP 200 status, otherwise, an HTTP 404 status is returned to indicate that the resource is not found.
 \lstinputlisting[language=java]{code/GetPoll.java}
