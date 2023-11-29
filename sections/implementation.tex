@@ -11,7 +11,7 @@ The method declerations is custom query methods that Spring Data JPA will automa
 \subsection{Controller Implementation}
 In the heart of our backend's HTTP request handling is the PollController, a class dedicated to managing poll-related operations. The controller is annotated with @RestController, indicating that it's ready to handle web requests. REST stands for REpresentational State Transfer [15]. We've implemented two main request mappings in this controller.
 
-The first mapping, @GetMapping("/{id}"), is designed to retrieve a poll by its unique identifier. When a GET request is made to this endpoint with a poll's ID, the pollService.findById(id) method is called. This service method returns an Optional<Poll>, which is a container that may or may not contain a non-null value, depending on if a poll with the given ID exists. If the poll is found, it is returned with an HTTP 200 status, otherwise, an HTTP 404 status is returned to indicate that the resource is not found.
+The first mapping, @GetMapping("/{id}"), is designed to retrieve a poll by its unique identifier. When a GET request is made to this endpoint with a poll's ID, the pollService.findById(id) method is called. This service method returns an Optional-Poll, which is a container that may or may not contain a non-null value, depending on if a poll with the given ID exists. If the poll is found, it is returned with an HTTP 200 status, otherwise, an HTTP 404 status is returned to indicate that the resource is not found.
 \lstinputlisting[language=java]{code/GetPoll.java}
 
 The @PostMapping method in our application serves to create a new poll based on user input. When a POST request is received at this endpoint, the method createPoll is invoked, expecting a JSON representation of a Poll object in the request body and a Firebase ID token in the 'Authorization' header. Utilizing a custom utility method FirebaseFunctions.getUidFromToken, we decode this ID token to extract the user's Firebase UID, which is essential for associating the poll with the correct user account. The action dweetioController.sendToDweet publishes the newly created poll, making it accessible for real-time updates and interactions.
@@ -19,11 +19,12 @@ The @PostMapping method in our application serves to create a new poll based on 
 
 
 \subsection{Frontend Implementation}
-
 The frontend of our application is implemented using React, a declarative, efficient, and flexible JavaScript library for building user interfaces. Here is how we have structured the frontend to interact with our backend services and third-party integrations:
 
 \subsubsection*{React and Tailwind CSS}
 React’s component-based architecture allows us to build encapsulated components that manage their own state and compose them to make complex UIs. Tailwind CSS is used alongside React to style our components with utility classes, ensuring a responsive and modern user interface.
+
+The App function in this React code snippet is the main component that sets up the client-side routing for our application using React Router. This function returns a Router component, which defines the navigation context for the entire application. Within the Router, a Routes component is used to declare different URL paths and associate them with corresponding React components that should be rendered when the application navigates to those paths.
 
 \lstinputlisting[language=Java]{code/App.js}
 

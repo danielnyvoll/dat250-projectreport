@@ -7,9 +7,7 @@ We have chosen React and Tailwind for our web application's frontend, aligning w
 
 React stands out for its component-based architecture, allowing developers to create self-contained components managing their own state, leading to reusable, complex UIs. It simplifies development and reduces redundancy. React's lifecycle management offers fine control over component behavior, and its declarative nature means developers describe the UI while React handles DOM updates efficiently. This is especially beneficial for large application maintainability.
 
-The React community is vast, offering numerous libraries and tools like Redux, MobX, and React Router. Developer tools like React Developer Tools enhance the debugging experience, and React's helpful error messages aid in swift issue resolution.
-
-Tailwind CSS complements this by enabling in-HTML styling, reducing the need to switch between HTML and CSS files. Its utility-first approach and self-explanatory classes enhance readability and speed up development. Tailwind's focus on utility classes often results in smaller CSS files, boosting performance. Its JIT compiler ensures minimal CSS generation, enhancing load times and overall web application performance.
+Tailwind CSS complements this by enabling in-HTML styling, reducing the need to switch between HTML and CSS files. Its utility-first approach and self-explanatory classes enhance readability and speed up development. Tailwind's focus on utility classes often results in smaller CSS files, boosting performance. Its Just-In-Time (JIT) compiler ensures minimal CSS generation, enhancing load times and overall web application performance.
 
 \subsection{Spring Boot: Back-End Infrastructure}
 Spring Boot is an extension of the Spring framework that simplifies the initial setup and development of new Spring applications.[3] 
@@ -28,18 +26,14 @@ To streamline the configuration process, Spring Boot provides a set of 'starter'
 These starters cover many Spring Boot features, such as data access, messaging, and web services. 
 Using starters, you can avoid library version conflicts and ensure that you're using a set of dependencies that Spring Boot has tested and approved.
 
-Spring Boot benefits from the strong support of the vibrant and extensive Spring community. 
-There are numerous guides, tutorials, and a comprehensive reference documentation available. 
-Moreover, the community support forums and Stack Overflow are active and helpful in solving problems.
-
 Spring Boot has excellent integration with Spring Data, which simplifies database access and provides support for various data access technologies, including JPA, JDBC, and NoSQL. 
-Spring Boot also works well with Hibernate - one of the most popular object-relational mapping (ORM) tools - making it easier to work with databases using an object-oriented paradigm.
+Spring Boot also works well with Hibernate - one of the most popular object-relational mapping (ORM) tools - making it easier to work with databases using an object-oriented paradigm.[19]
 
 \subsection{RabbitMQ and Dweet.io: Message Systems}
 
 RabbitMQ, an open-source message broker, is chosen for its reliability, scalability, and flexibility in handling application messaging systems.[13] It serves as a platform-neutral intermediary, enabling asynchronous communication between services with support for various messaging protocols, intricate queuing, and multiple exchange types. This ensures flexible routing and enhances system robustness by allowing producers and consumers to scale independently. Additionally, RabbitMQ's features like message durability, persistent queues, and capability to operate in high-load environments with consistent hashing and sharding make it ideal for maintaining application integrity and managing high message volumes.
 
-Complementing RabbitMQ, Dweet.io offers a simplified solution for real-time messaging, especially beneficial for Internet of Things (IoT) applications. It enables devices to "dweet" messages for instant access by subscribed clients, emphasizing timely data delivery with minimal setup requirements. This makes Dweet.io highly accessible for immediate deployment and integration.
+Complementing RabbitMQ, Dweet.io offers a simplified solution for real-time messaging, especially beneficial for Internet of Things (IoT) applications[20]. It enables devices to "dweet" messages for instant access by subscribed clients, emphasizing timely data delivery with minimal setup requirements. This makes Dweet.io highly accessible for immediate deployment and integration.
 
 Together, RabbitMQ and Dweet.io provide a comprehensive messaging solution. RabbitMQ handles the heavy-duty, reliable queuing and processing of messages, while Dweet.io contributes with its real-time messaging capabilities, ensuring a responsive and interconnected application ecosystem.
 
@@ -63,7 +57,7 @@ Together, JPA and Hibernate offer:
   \item \textbf{Performance Optimizations}: Features like caching and batching improve application performance and database interaction efficiency.
 \end{itemize}
 
-The H2 database is an in-memory, Java-based database known for its speed and simplicity. 
+The H2 database is a Java-based database known for its speed and simplicity. 
 Primarily used in development and testing environments, H2 stands out for its ease of setup and rapid execution. 
 It offers a web console for direct database interactions, enhancing its usability during development.
 
@@ -74,14 +68,8 @@ It offers a web console for direct database interactions, enhancing its usabilit
 
 Firebase Authentication provides a full backend service that can authenticate users through multiple methods, including passwords, phone numbers, popular federated identity providers like Google, Facebook, and Twitter, and more. The decision to use Firebase for authentication in the application is based on its comprehensive suite of features that enhance user security and improve the overall user experience.
 
-Firebase Authentication offers a seamless integration with applications, providing a complete identity solution supporting email/password auth, social media login, and phone authentication. Its SDKs and ready-made UI libraries allow for quick implementation of secure user authentication.
+Firebase Authentication offers a seamless integration with applications, providing a complete identity solution supporting email/password auth, social media login, and phone authentication. Its SDKs and ready-made UI libraries allow for quick implementation of secure user authentication. The service not only handles user authentication but also manages user accounts and sessions with ease. It's equipped with features such as email and password reset, account verification, and sign-in link capabilities, which contribute to a robust authentication flow.
 
-The service not only handles user authentication but also manages user accounts and sessions with ease. It's equipped with features such as email and password reset, account verification, and sign-in link capabilities, which contribute to a robust authentication flow.
+According to Pramono and Javista, Firebase Authentication ensures that user credentials are securely managed and stored, preventing users from manipulating data or using the identity of another user due to its security and strict data verification process [21]. The platform is compliant with identity standards such as OAuth 2.0 and OpenID Connect, so user data is handled in a secure and standardized manner. Designed to handle large-scale applications, Firebase Authentication can effortlessly scale to accommodate millions of users. The flexibility offered by Firebase allows developers to focus on the user experience while Firebase takes care of the authentication backend.
 
-According to Pramono and Javista, Firebase Authentication ensures that user credentials are securely managed and stored, preventing users from manipulating data or using the identity of another user due to its security and strict data verification process [10]. The platform is compliant with identity standards such as OAuth 2.0 and OpenID Connect, so user data is handled in a secure and standardized manner.
-
-Designed to handle large-scale applications, Firebase Authentication can effortlessly scale to accommodate millions of users. The flexibility offered by Firebase allows developers to focus on the user experience while Firebase takes care of the authentication backend.
-
-Firebase Authentication is part of the larger Firebase ecosystem, which means it can be easily integrated with other Firebase services like Firestore, Firebase Realtime Database, and Firebase Cloud Functions. This integration provides a seamless development experience and allows for the creation of sophisticated, authenticated workflows.
-
-By incorporating Firebase Authentication, the application streamlines the user sign-in process and ensures that authentication is handled safely and efficiently, allowing developers to focus on building features that add value to the user experience rather than the intricacies of user security management.
+Firebase Authentication is part of the larger Firebase ecosystem, which means it can be easily integrated with other Firebase services like Firestore, Firebase Realtime Database, and Firebase Cloud Functions. This integration provides a seamless development experience and allows for the creation of sophisticated, authenticated workflows. By incorporating Firebase Authentication, the application streamlines the user sign-in process and ensures that authentication is handled safely and efficiently, allowing developers to focus on building features that add value to the user experience rather than the intricacies of user security management.
