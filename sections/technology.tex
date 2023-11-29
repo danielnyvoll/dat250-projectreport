@@ -3,7 +3,7 @@
 
 \subsection{React and Tailwind: Efficient Frontend Development}
 
-We have chosen React and Tailwind for our web application's frontend, aligning with Goadrich and Rogers' findings that React Native excels across different operating systems \cite[p.~611]{goadrich2011smart}. React enables us to build dynamic web applications where data changes without page reloads. Tailwind CSS, a utility-first framework, has been rising in popularity for its streamlined approach to styling.
+We have chosen React and Tailwind for our web application's frontend, aligning with Goadrich and Rogers' findings that React Native excels across different operating systems [2]. React enables us to build dynamic web applications where data changes without page reloads. Tailwind CSS, a utility-first framework, has been rising in popularity for its streamlined approach to styling.
 
 React stands out for its component-based architecture, allowing developers to create self-contained components managing their own state, leading to reusable, complex UIs. It simplifies development and reduces redundancy. React's lifecycle management offers fine control over component behavior, and its declarative nature means developers describe the UI while React handles DOM updates efficiently. This is especially beneficial for large application maintainability.
 
@@ -12,7 +12,7 @@ The React community is vast, offering numerous libraries and tools like Redux, M
 Tailwind CSS complements this by enabling in-HTML styling, reducing the need to switch between HTML and CSS files. Its utility-first approach and self-explanatory classes enhance readability and speed up development. Tailwind's focus on utility classes often results in smaller CSS files, boosting performance. Its JIT compiler ensures minimal CSS generation, enhancing load times and overall web application performance.
 
 \subsection{Spring Boot: Back-End Infrastructure}
-Spring Boot is an extension of the Spring framework that simplifies the initial setup and development of new Spring applications.\cite{springboot2023} 
+Spring Boot is an extension of the Spring framework that simplifies the initial setup and development of new Spring applications.[3] 
 It favors convention over configuration and is designed to get you up and running as quickly as possible. Here's a detailed explanation of why Spring Boot is an excellent choice for our back-end infrastructure:
 
 Spring Boot simplifies the management of application configurations. 
@@ -37,7 +37,7 @@ Spring Boot also works well with Hibernate - one of the most popular object-rela
 
 \subsection{RabbitMQ and Dweet.io: Message Systems}
 
-RabbitMQ, an open-source message broker, is chosen for its reliability, scalability, and flexibility in handling application messaging systems.\cite{RabbitamqpSpec} It serves as a platform-neutral intermediary, enabling asynchronous communication between services with support for various messaging protocols, intricate queuing, and multiple exchange types. This ensures flexible routing and enhances system robustness by allowing producers and consumers to scale independently. Additionally, RabbitMQ's features like message durability, persistent queues, and capability to operate in high-load environments with consistent hashing and sharding make it ideal for maintaining application integrity and managing high message volumes.
+RabbitMQ, an open-source message broker, is chosen for its reliability, scalability, and flexibility in handling application messaging systems.[13] It serves as a platform-neutral intermediary, enabling asynchronous communication between services with support for various messaging protocols, intricate queuing, and multiple exchange types. This ensures flexible routing and enhances system robustness by allowing producers and consumers to scale independently. Additionally, RabbitMQ's features like message durability, persistent queues, and capability to operate in high-load environments with consistent hashing and sharding make it ideal for maintaining application integrity and managing high message volumes.
 
 Complementing RabbitMQ, Dweet.io offers a simplified solution for real-time messaging, especially beneficial for Internet of Things (IoT) applications. It enables devices to "dweet" messages for instant access by subscribed clients, emphasizing timely data delivery with minimal setup requirements. This makes Dweet.io highly accessible for immediate deployment and integration.
 
@@ -54,7 +54,7 @@ JPA's primary advantage lies in its database-agnostic nature, offering flexibili
 Hibernate, as an implementation of JPA, enhances its capabilities. 
 It's renowned for its performance optimization features, such as lazy loading and sophisticated caching mechanisms. 
 Hibernate also supports a rich set of querying capabilities through the Hibernate Query Language (HQL) and Criteria API, enabling more complex and efficient data retrieval operations. 
-According to a study presented at the 2021 23rd International Conference on Control Systems and Computer Science, "ORM (object/relational mapping) has now widespread. This is mainly due to Hibernate, an open-source ORM, and Spring Data, an umbrella project from the Spring family whose purpose is to unify and facilitate access to different kinds of persistence stores, including relational database systems and NoSQL databases" \cite{orm2021cscs}.
+According to a study presented at the 2021 23rd International Conference on Control Systems and Computer Science, "ORM (object/relational mapping) has now widespread. This is mainly due to Hibernate, an open-source ORM, and Spring Data, an umbrella project from the Spring family whose purpose is to unify and facilitate access to different kinds of persistence stores, including relational database systems and NoSQL databases"[19].
 Together, JPA and Hibernate offer:
 
 \begin{itemize}
@@ -78,7 +78,7 @@ Firebase Authentication offers a seamless integration with applications, providi
 
 The service not only handles user authentication but also manages user accounts and sessions with ease. It's equipped with features such as email and password reset, account verification, and sign-in link capabilities, which contribute to a robust authentication flow.
 
-According to Pramono and Javista, Firebase Authentication ensures that user credentials are securely managed and stored, preventing users from manipulating data or using the identity of another user due to its security and strict data verification process \cite{pramono2021firebase}. The platform is compliant with identity standards such as OAuth 2.0 and OpenID Connect, so user data is handled in a secure and standardized manner.
+According to Pramono and Javista, Firebase Authentication ensures that user credentials are securely managed and stored, preventing users from manipulating data or using the identity of another user due to its security and strict data verification process [10]. The platform is compliant with identity standards such as OAuth 2.0 and OpenID Connect, so user data is handled in a secure and standardized manner.
 
 Designed to handle large-scale applications, Firebase Authentication can effortlessly scale to accommodate millions of users. The flexibility offered by Firebase allows developers to focus on the user experience while Firebase takes care of the authentication backend.
 
